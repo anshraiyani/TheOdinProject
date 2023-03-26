@@ -1,0 +1,11 @@
+p{
+    color: rgb(189, 86, 86);
+    background-color: antiquewhite;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
+img{
+    height: auto;
+    width: 300px;
+}

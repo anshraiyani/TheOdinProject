@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Etch-a-Sketch</h1>
+    </div>
+    <div class="board"></div>
+    <div class="btns">
+        <button onclick="changeColor('black')">Black</button>
+        <button onclick="changeColor('grey')">Grey</button>
+        <button onclick="changeColor('random')">Random</button>
+        <button onclick="changeColor('white')">Eraser</button>
+        <button onclick="resetCanvas()">Reset</button>
+    </div>
+    <div>
+        <input type="text" placeholder="Size of Canvas" value="16" onchange="changeSize(this.value)">
+        <button>Set Size</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
