@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sign-up!</title>
     <link rel="stylesheet" href="signup.css" />
-    <link href="signuo.js" />
+    <script src="signup.js"></script>
   </head>
   <body>
     <div class="container">
@@ -16,7 +16,8 @@
           <h2>
             This is not a real online service! You know you need something<br />like
             this in your life to help you realize your deepest dreams.<br />Sign
-            up <em>now</em> to get started<br /><br />You <em>know</em> you want to.
+            up <em>now</em> to get started<br /><br />You <em>know</em> you want
+            to.
           </h2>
         </div>
         <div class="middle">
@@ -26,7 +27,7 @@
               <div class="form-sub-div">
                 <label for="first-name">First Name</label>
                 <input type="text" id="first-name" name="first-name" />
-              </div>
+              </div>a
               <div class="form-sub-div">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" />
@@ -34,7 +35,7 @@
               <div class="form-sub-div">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required />
-                <p class="error-msg">*Passwords do not match</p>
+                <p class="errormsg">*Passwords do not match</p>
               </div>
             </div>
             <div class="form-div">
@@ -48,18 +49,13 @@
               </div>
               <div class="form-sub-div">
                 <label for="confirm-pass">Confirm Password</label>
-                <input
-                  type="password"
-                  name="confirm-pass"
-                  id="confirm-pass"
-                  required
-                />
+                <input type="password" name="confirm-pass" id="confirmpass" required/>
               </div>
             </div>
           </form>
         </div>
         <div class="lower">
-          <button class="green-btn">Create Account</button>
+          <button class="green-btn" type="submit">Create Account</button>
           <div class="login-info">
             <p class="login">Already have an account?</p>
             <button class="login-btn">Log in</button>
