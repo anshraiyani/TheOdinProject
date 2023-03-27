@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .container{
@@ -26,6 +27,7 @@
     width: 60vw;
     display: flex;
     flex-direction: column;
+    background-color:rgb(239, 239, 239);
 }
 
 .upper{
@@ -38,13 +40,84 @@
 }
 
 .middle{
-    height: 30vh;
+    height: 35vh;
+    background-color: white;
+    box-shadow: 6px 4px 6px gray;
 }
 
 .main-form{
     display: flex;
+    font-size: small;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+input{
+    height: 3vh;
+    border: 1px rgb(211, 211, 211) solid;
+    border-radius: 5px;
+}
+
+input:focus{
+    border: 1px blue;
+}
+
+input:invalid{
+    border:2px red solid;
+}
+
+.form-sub-div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4%;
+}
+
+.error-msg{
+    color: red;
 }
 
 .lower{
     height: 35vh;
+}
+
+.green-btn{
+    margin-top: 4%;
+    margin-left: 5%;
+    height: 17%;
+    width: 20%;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.green-btn:hover{
+    background-color: white;
+    color: green;
+    border: 2px solid green;
+}
+
+.login-info{
+    margin-top: 1%;
+    margin-left: 5%;
+}
+
+.login{
+    display: inline;
+}
+
+.login-btn{
+    border: none;
+    font-size: medium;
+    color: green;
+    cursor: pointer;
+    background-color: rgb(239, 239, 239);
 }
