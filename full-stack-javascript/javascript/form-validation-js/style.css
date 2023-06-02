@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: sans-serif;
+}
+
+form{
+    max-width: 200px;
+}
+
+form * {
+    display: block;
+}
+
+input#mail{
+    width: 100%;
+    margin: 0;
+    appearance: none;
+}
+
+input.invalid{
+    border-color: #900;
+    background-color: rgb(237, 167, 167);
+}
+
+input:focus.invalid{
+    outline: none;
+}
+
+.error{
+    width: 100%;
+    padding: 0;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+    font-size: 80%;
+}
+
+.error.active{
+    padding: 0.3em;
+}
