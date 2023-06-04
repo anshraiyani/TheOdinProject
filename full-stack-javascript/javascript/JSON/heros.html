@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Our superheroes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+      <header>
+
+      </header>
+
+      <section>
+
+      </section>
+
+      <script>
+        populate()
+        async function populate(){
+            const requestURL = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"
+            const request = new Request(requestURL)
+
+            const response = await fetch(request)
+            const superHeroesText=await response.text()
+
+            const superHeroes=JSON.parse(superHeroesText)
+            populateHeader(superHeroes)
+            populateHeroes(superHeroes)
+        }
+        
+        function populateHeader(obj) {
+            const header = document.querySelector('header')
+            const h1=document.createElement('h1')
+            h1.textContent=obj.squadName
+            header.appendChild(h1)
+
+            const para=document.createElement('p')
+            para.textContent=`Hometown: ${obj.homeTown} // Formed: ${obj.formed}`
+            header.appendChild(para)
+        }
+
+        function populateHeroes(obj){
+            const section = document.querySelector('section')
+            const heroes=obj.members
+
+            heroes.forEach(hero => {
+                const article =document.createElement("article")
+                const h2=document.createElement('h2')
+                const p1=document.createElement('p')
+                const p2=document.createElement('p')
+                const p3=document.createElement('p')
+                const ul=document.createElement('ul')
+
+                h2.textContent=hero.name
+                p1.textContent=`Age: ${hero.age}`
+                p2.textContent=`Secret Identity ${hero.secretIdentity}`
+                p3.textContent="Superpowers:"
+
+                const superPowers=hero.powers
+                superPowers.forEach(power => {
+                    const li=document.createElement('li')
+                    li.textContent=power
+                    ul.appendChild(li)
+                })
+
+                article.appendChild(h2)
+                article.appendChild(p1)
+                article.appendChild(p2)
+                article.appendChild(p3)
+                article.appendChild(ul)
+
+                section.appendChild(article)
+            });
+        }
+
+      </script>
+  </body>
+</html>
