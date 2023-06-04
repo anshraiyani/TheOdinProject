@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>giphy</title>
+</head>
+<body>
+    <input type="text" placeholder="type here...">
+    <button class="newImg" onclick="newImage()">New img</button>
+    <img src="#" alt="" style="display: block;">
+    <script>
+        function newImage(){
+            const img=document.querySelector('img')
+            const search=document.querySelector('input')
+            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=bhYtIKQ2D6bhdTV9H12NeW6JSr1AxMiP&s=`+search.value, {mode:"cors"}).then(function(response){
+                return response.json()
+            }).then(function(response){
+                // console.log(response.data.images.original.url)
+                img.src=response.data.images.original.url
+            })
+        }
+        
+    </script>
+</body>
+</html>
