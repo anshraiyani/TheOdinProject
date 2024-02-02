@@ -8,6 +8,8 @@ import {
 import { mockUsers } from "../utils/constants.mjs";
 import { createUserValidationSchema } from "../utils/validationSchemas.mjs";
 import { resolveIndexByUserId } from "../utils/middlewares.mjs";
+import { User } from "../mongoose/schemas/user.mjs";
+import { hashPassword } from "../utils/helpers.mjs";
 
 const router = Router();
 
@@ -20,14 +22,14 @@ router.get(
     .isLength({ min: 3, max: 10 })
     .withMessage("must be atleast 3-10 chars"),
   (req, res) => {
-    console.log(req.session.id)
-    req.sessionStore.get(req.session.id,(err,sessionData)=>{
-      if(err){
-        console.log(err)
+    console.log(req.session.id);
+    req.sessionStore.get(req.session.id, (err, sessionData) => {
+      if (err) {
+        console.log(err);
         throw err;
       }
-      console.log(sessionData)
-    })
+      console.log(sessionData);
+    });
     const result = validationResult(req);
     const { filter, value } = req.query;
     if (filter && value) {
@@ -40,16 +42,21 @@ router.get(
 router.post(
   "/api/users",
   checkSchema(createUserValidationSchema),
-  (req, res) => {
+  async (req, res) => {
     const result = validationResult(req);
-    console.log(result);
     if (!result.isEmpty()) {
-      return res.status(400).send({ errors: result.array() });
+      return res.send(result.array());
     }
     const data = matchedData(req);
-    const newUser = { id: mockUsers[mockUsers.length - 1].id + 1, ...data };
-    mockUsers.push(newUser);
-    return res.status(201).send(newUser);
+    data.password = hashPassword(data.password);
+    const newUser = new User(data);
+    try {
+      const savedUser = await newUser.save();
+      return res.status(201).send(savedUser);
+    } catch (error) {
+      console.log(error);
+      return res.sendStatus(401).send({ msg: error });
+    }
   }
 );
 

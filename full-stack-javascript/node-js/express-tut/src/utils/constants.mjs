@@ -12,3 +12,6 @@ export const mockProducts = [
   { id: 1, name: "iphone 15", price: 1500 },
   { id: 2, name: "macbook", price: 1070 },
 ];
+
+export const CONNECTION_STRING =
+  "mongodb+srv://anshraiyani13:mNYJIqFCogueIJ1c@cluster0.i39uscv.mongodb.net/?retryWrites=true&w=majority";
